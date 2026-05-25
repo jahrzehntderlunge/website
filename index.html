@@ -9,7 +9,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blau:       #1054a8;
+      --blau:       #1e3fce;
       --tuerkis:    #68d2df;
       --gelb:       #f7af10;
       --gruen:      #5a9e6f;
@@ -109,10 +109,15 @@
       overflow: hidden;
     }
 
-    /* Logo zentriert oben – fix über dem Slider */
+    .hero-oben {
+      height: 220px;
+      background: var(--blau);
+      position: relative;
+    }
+
     .hero-logo {
       position: absolute;
-      top: 1.5rem;
+      bottom: -100px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 20;
@@ -120,38 +125,36 @@
     }
 
     .hero-logo img {
-      width: 320px;
+      width: 340px;
       max-width: 40vw;
-      mix-blend-mode: screen;
-      filter: brightness(1.4) contrast(1.1);
+      filter: none;
     }
 
-    /* Slider */
-    .hero-slider {
-      position: relative;
-      width: 100%;
-      height: 500px;
+    .hero-strip {
       overflow: hidden;
+      height: 360px;
+      display: flex;
+      position: relative;
     }
 
-    .hero-slider .slide {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
+    .hero-track {
+      display: flex;
+      gap: 10px;
+      animation: laufend 20s linear infinite;
+      will-change: transform;
     }
 
-    .hero-slider .slide.aktiv {
-      opacity: 1;
-    }
-
-    .hero-slider .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .hero-track img {
+      height: 360px;
+      width: auto;
+      flex-shrink: 0;
       display: block;
+      object-fit: cover;
+    }
+
+    @keyframes laufend {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* ══ INTRO TEXT + BILD ══ */
@@ -667,21 +670,32 @@
 
   <!-- ══ HERO BANNER ══ -->
   <section class="hero-banner">
-    <!-- Logo zentriert über dem Slider -->
-    <div class="hero-logo">
-      <a href="#"><img src="Logo.jpg" alt="Jahrzehnt der Lunge" /></a>
+    <div class="hero-oben">
+      <div class="hero-logo">
+        <a href="#"><img src="Logo-transparent.png" alt="Jahrzehnt der Lunge" /></a>
+      </div>
     </div>
-    <!-- Bild-Slider -->
-    <div class="hero-slider" id="heroSlider">
-      <div class="slide aktiv"><img src="header_lunge_01.png" alt="" /></div>
-      <div class="slide"><img src="header_lunge_02.png" alt="" /></div>
-      <div class="slide"><img src="header_lunge_03.png" alt="" /></div>
-      <div class="slide"><img src="header_lunge_05.png" alt="" /></div>
-      <div class="slide"><img src="header_lunge_06.png" alt="" /></div>
-      <div class="slide"><img src="header_lunge_07.png" alt="" /></div>
-      <div class="slide"><img src="header_lunge_08.png" alt="" /></div>
-      <div class="slide"><img src="header_lunge_09.png" alt="" /></div>
-      <div class="slide"><img src="header_lunge_10.png" alt="" /></div>
+    <div class="hero-strip">
+      <div class="hero-track">
+        <img src="header_lunge_01.png" alt="" />
+        <img src="header_lunge_02.png" alt="" />
+        <img src="header_lunge_03.png" alt="" />
+        <img src="header_lunge_05.png" alt="" />
+        <img src="header_lunge_06.png" alt="" />
+        <img src="header_lunge_07.png" alt="" />
+        <img src="header_lunge_08.png" alt="" />
+        <img src="header_lunge_09.png" alt="" />
+        <img src="header_lunge_10.png" alt="" />
+        <img src="header_lunge_01.png" alt="" />
+        <img src="header_lunge_02.png" alt="" />
+        <img src="header_lunge_03.png" alt="" />
+        <img src="header_lunge_05.png" alt="" />
+        <img src="header_lunge_06.png" alt="" />
+        <img src="header_lunge_07.png" alt="" />
+        <img src="header_lunge_08.png" alt="" />
+        <img src="header_lunge_09.png" alt="" />
+        <img src="header_lunge_10.png" alt="" />
+      </div>
     </div>
   </section>
 
@@ -913,15 +927,6 @@
 
   <!-- ══ JAVASCRIPT ══ -->
   <script>
-    // ── Hero Slider ──
-    let aktuellerSlide = 0;
-    const slides = document.querySelectorAll('.hero-slider .slide');
-    setInterval(() => {
-      slides[aktuellerSlide].classList.remove('aktiv');
-      aktuellerSlide = (aktuellerSlide + 1) % slides.length;
-      slides[aktuellerSlide].classList.add('aktiv');
-    }, 3000);
-
     // ── Kontakt Toggle ──
     function toggleKontakt() {
       const box = document.getElementById('kontaktBox');
