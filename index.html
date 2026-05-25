@@ -127,47 +127,58 @@
       overflow: hidden;
     }
 
+    /* Blauer Bereich oben */
     .hero-oben {
-      height: 220px;
+      height: 340px;
       background: var(--blau);
       position: relative;
     }
 
+    /* Logo mittig – "DER" auf Grenze blau/bilder */
     .hero-logo {
       position: absolute;
-      bottom: -100px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -25%);
       z-index: 20;
       text-align: center;
     }
 
     .hero-logo img {
-      width: 340px;
-      max-width: 40vw;
+      width: 480px;
+      max-width: 50vw;
       filter: none;
     }
 
+    /* Laufende Bilder */
     .hero-strip {
       overflow: hidden;
-      height: 360px;
+      height: 240px;
       display: flex;
       position: relative;
+      background: var(--blau);
     }
 
     .hero-track {
       display: flex;
-      gap: 10px;
-      animation: laufend 20s linear infinite;
+      gap: 30px;
+      animation: laufend 45s linear infinite;
       will-change: transform;
+      padding: 0 15px;
     }
 
     .hero-track img {
-      height: 360px;
+      height: 240px;
       width: auto;
       flex-shrink: 0;
       display: block;
       object-fit: cover;
+    }
+
+    /* Blauer Streifen unter Bildern */
+    .hero-unter {
+      height: 80px;
+      background: var(--blau);
     }
 
     @keyframes laufend {
@@ -788,7 +799,7 @@
       </div>
 
       <div class="vorstand-person">
-        <img src="Lorena_Krüger.jpeg" alt="Lorena Krüger" />
+        <img src="Lorena_Krueger.jpeg" alt="Lorena Krüger" />
         <h3>Lorena Krüger</h3>
         <p>Vertretung der Patient:innen.</p>
       </div>
