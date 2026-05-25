@@ -109,49 +109,53 @@
       overflow: hidden;
     }
 
-    /* Logo mittig oben */
+    /* Oberer blauer Bereich */
+    .hero-oben {
+      height: 200px;
+      background: var(--blau);
+      position: relative;
+    }
+
+    /* Logo mittig – ragt über die Bilder */
     .hero-logo {
       position: absolute;
-      top: 50%;
+      bottom: -80px;
       left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
+      transform: translateX(-50%);
+      z-index: 20;
       text-align: center;
     }
 
     .hero-logo img {
-      width: 280px;
-      max-width: 40vw;
+      width: 260px;
+      max-width: 35vw;
+      mix-blend-mode: screen;
+      filter: brightness(1.2);
     }
 
-    /* Oberer blauer Bereich */
-    .hero-banner::before {
-      content: '';
-      display: block;
-      height: 220px;
-      background: var(--blau);
-    }
-
-    /* Laufende Bilder unten */
+    /* Laufende Bilder */
     .hero-strip {
       overflow: hidden;
-      height: 260px;
+      height: 340px;
       display: flex;
+      position: relative;
     }
 
     .hero-track {
       display: flex;
-      gap: 6px;
-      animation: laufend 30s linear infinite;
+      gap: 16px;
+      animation: laufend 25s linear infinite;
       will-change: transform;
+      padding: 0 8px;
     }
 
     .hero-track img {
-      height: 260px;
+      height: 340px;
       width: auto;
       flex-shrink: 0;
       display: block;
       object-fit: cover;
+      border-radius: 4px;
     }
 
     @keyframes laufend {
@@ -632,9 +636,11 @@
 
   <!-- ══ HERO BANNER ══ -->
   <section class="hero-banner">
-    <!-- Logo mittig oben -->
-    <div class="hero-logo">
-      <a href="#"><img src="Logo.jpg" alt="Jahrzehnt der Lunge" /></a>
+    <!-- Blauer Bereich oben mit Logo -->
+    <div class="hero-oben">
+      <div class="hero-logo">
+        <a href="#"><img src="Logo.jpg" alt="Jahrzehnt der Lunge" /></a>
+      </div>
     </div>
     <!-- Laufende Bilder -->
     <div class="hero-strip">
