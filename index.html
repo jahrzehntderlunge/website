@@ -109,17 +109,10 @@
       overflow: hidden;
     }
 
-    /* Oberer blauer Bereich */
-    .hero-oben {
-      height: 200px;
-      background: var(--blau);
-      position: relative;
-    }
-
-    /* Logo mittig – ragt über die Bilder */
+    /* Logo zentriert oben – fix über dem Slider */
     .hero-logo {
       position: absolute;
-      bottom: -80px;
+      top: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 20;
@@ -127,40 +120,38 @@
     }
 
     .hero-logo img {
-      width: 260px;
-      max-width: 35vw;
-      mix-blend-mode: lighten;
-      filter: brightness(1.1) contrast(1.1);
+      width: 320px;
+      max-width: 40vw;
+      mix-blend-mode: screen;
+      filter: brightness(1.4) contrast(1.1);
     }
 
-    /* Laufende Bilder */
-    .hero-strip {
-      overflow: hidden;
-      height: 340px;
-      display: flex;
+    /* Slider */
+    .hero-slider {
       position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
     }
 
-    .hero-track {
-      display: flex;
-      gap: 16px;
-      animation: laufend 28s linear infinite;
-      will-change: transform;
-      padding: 0 8px;
+    .hero-slider .slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
 
-    .hero-track img {
-      height: 340px;
-      width: auto;
-      flex-shrink: 0;
-      display: block;
+    .hero-slider .slide.aktiv {
+      opacity: 1;
+    }
+
+    .hero-slider .slide img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 4px;
-    }
-
-    @keyframes laufend {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      display: block;
     }
 
     /* ══ INTRO TEXT + BILD ══ */
@@ -312,7 +303,7 @@
 
     .vorstand-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2.5rem;
     }
 
@@ -531,6 +522,31 @@
 
     .btn-senden:hover { background: var(--weiss); }
 
+    /* ══ KONTAKT BUTTON ══ */
+    .btn-kontakt {
+      background: var(--tuerkis);
+      color: var(--blau);
+      border: none;
+      padding: 0.7rem 2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-family: var(--schrift);
+    }
+
+    .btn-kontakt:hover {
+      background: var(--weiss);
+      color: var(--blau);
+    }
+
+    .kontakt-form-box {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
     /* ══ FOOTER ══ */
     footer {
       background: var(--blau);
@@ -550,15 +566,16 @@
     .footer-nav ul { list-style: none; }
 
     .footer-nav ul li a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      font-size: 0.9rem;
+      color: var(--weiss);
+      text-decoration: underline;
+      font-size: 0.95rem;
+      font-weight: 600;
       display: block;
-      padding: 0.3rem 0;
+      padding: 0.4rem 0;
       transition: color 0.2s;
     }
 
-    .footer-nav ul li a:hover { color: var(--weiss); }
+    .footer-nav ul li a:hover { color: var(--tuerkis); }
 
     .footer-kontakt h3 {
       color: var(--weiss);
@@ -650,35 +667,21 @@
 
   <!-- ══ HERO BANNER ══ -->
   <section class="hero-banner">
-    <!-- Blauer Bereich oben mit Logo -->
-    <div class="hero-oben">
-      <div class="hero-logo">
-        <a href="#"><img src="Logo.jpg" alt="Jahrzehnt der Lunge" /></a>
-      </div>
+    <!-- Logo zentriert über dem Slider -->
+    <div class="hero-logo">
+      <a href="#"><img src="Logo.jpg" alt="Jahrzehnt der Lunge" /></a>
     </div>
-    <!-- Laufende Bilder -->
-    <div class="hero-strip">
-      <div class="hero-track" id="heroTrack">
-        <img src="header_lunge_01.png" alt="" />
-        <img src="header_lunge_02.png" alt="" />
-        <img src="header_lunge_03.png" alt="" />
-        <img src="header_lunge_05.png" alt="" />
-        <img src="header_lunge_06.png" alt="" />
-        <img src="header_lunge_07.png" alt="" />
-        <img src="header_lunge_08.png" alt="" />
-        <img src="header_lunge_09.png" alt="" />
-        <img src="header_lunge_10.png" alt="" />
-        <!-- Duplikat für nahtloses Endlos-Scrolling -->
-        <img src="header_lunge_01.png" alt="" />
-        <img src="header_lunge_02.png" alt="" />
-        <img src="header_lunge_03.png" alt="" />
-        <img src="header_lunge_05.png" alt="" />
-        <img src="header_lunge_06.png" alt="" />
-        <img src="header_lunge_07.png" alt="" />
-        <img src="header_lunge_08.png" alt="" />
-        <img src="header_lunge_09.png" alt="" />
-        <img src="header_lunge_10.png" alt="" />
-      </div>
+    <!-- Bild-Slider -->
+    <div class="hero-slider" id="heroSlider">
+      <div class="slide aktiv"><img src="header_lunge_01.png" alt="" /></div>
+      <div class="slide"><img src="header_lunge_02.png" alt="" /></div>
+      <div class="slide"><img src="header_lunge_03.png" alt="" /></div>
+      <div class="slide"><img src="header_lunge_05.png" alt="" /></div>
+      <div class="slide"><img src="header_lunge_06.png" alt="" /></div>
+      <div class="slide"><img src="header_lunge_07.png" alt="" /></div>
+      <div class="slide"><img src="header_lunge_08.png" alt="" /></div>
+      <div class="slide"><img src="header_lunge_09.png" alt="" /></div>
+      <div class="slide"><img src="header_lunge_10.png" alt="" /></div>
     </div>
   </section>
 
@@ -732,7 +735,7 @@
       <div class="vorstand-person">
         <img src="Rabe_D0A3424_2.jpg" alt="Prof. Dr. Klaus Rabe" />
         <h3>Prof. Dr.<br>Klaus Rabe</h3>
-        <p>Seniorprofessor, Medizinische Fakultät – Christian-Albrechts-Universität zu Kiel. Stellvertretender Vorsitzender, Deutsches Zentrum für Lungenforschung.</p>
+        <p>Seniorprofessor, Medizinische Fakultät – Christian-Albrechts-Universität zu Kiel Stellvertretender Vorsitzender, Deutsches Zentrum für Lungenforschung Airway Research Center North (ARCN)</p>
       </div>
 
       <div class="vorstand-person">
@@ -870,36 +873,14 @@
   </section>
 
 
-  <!-- ══ KONTAKTFORMULAR ══ -->
-  <section id="kontakt">
-    <div class="kontakt-inner">
-      <h2>Kontakt aufnehmen</h2>
-      <div class="form-zeile">
-        <input type="text" placeholder="Name *" required />
-      </div>
-      <div class="form-zeile">
-        <input type="email" placeholder="Email-Adresse *" required />
-      </div>
-      <div class="form-zeile">
-        <input type="text" placeholder="Betreff" />
-      </div>
-      <div class="form-zeile">
-        <textarea placeholder="Nachricht *" required></textarea>
-      </div>
-      <button class="btn-senden">Senden</button>
-      <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-top:1rem;">(*) PFLICHTANGABE</p>
-    </div>
-  </section>
-
-
-  <!-- ══ FOOTER ══ -->
+  <!-- ══ FOOTER MIT KONTAKT ══ -->
   <footer>
     <div class="footer-inner">
       <nav class="footer-nav">
         <ul>
-          <li><a href="#">Startseite</a></li>
+          <li><a href="#" style="text-transform:uppercase;font-weight:700;font-size:0.85rem;">Startseite</a></li>
           <li><a href="#">Der Verein</a></li>
-          <li><a href="#">Positionen</a></li>
+          <li><a href="#">Position</a></li>
           <li><a href="#">News</a></li>
           <li><a href="#">Presse und Kontakt</a></li>
           <li><a href="#">Mitglied werden</a></li>
@@ -907,9 +888,22 @@
       </nav>
       <div class="footer-kontakt">
         <h3>Kontakt aufnehmen</h3>
-        <a href="#kontakt">Kontaktformular</a>
+        <button class="btn-kontakt" onclick="toggleKontakt()">Kontaktformular</button>
       </div>
     </div>
+
+    <!-- Verstecktes Formular -->
+    <div class="kontakt-form-box" id="kontaktBox" style="display:none;">
+      <div class="kontakt-inner">
+        <div class="form-zeile"><input type="text" placeholder="Name *" required /></div>
+        <div class="form-zeile"><input type="email" placeholder="Email-Adresse *" required /></div>
+        <div class="form-zeile"><input type="text" placeholder="Betreff" /></div>
+        <div class="form-zeile"><textarea placeholder="Nachricht *" required></textarea></div>
+        <button class="btn-senden">Senden</button>
+        <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-top:1rem;">(*) PFLICHTANGABE</p>
+      </div>
+    </div>
+
     <div class="footer-bottom">
       <p>2026 © Jahrzehnt der Lunge</p>
       <a href="#">Impressum</a>
@@ -919,6 +913,21 @@
 
   <!-- ══ JAVASCRIPT ══ -->
   <script>
+    // ── Hero Slider ──
+    let aktuellerSlide = 0;
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    setInterval(() => {
+      slides[aktuellerSlide].classList.remove('aktiv');
+      aktuellerSlide = (aktuellerSlide + 1) % slides.length;
+      slides[aktuellerSlide].classList.add('aktiv');
+    }, 3000);
+
+    // ── Kontakt Toggle ──
+    function toggleKontakt() {
+      const box = document.getElementById('kontaktBox');
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
+
     // ── News-Filter ──
     function filterNews(kategorie, btn) {
       document.querySelectorAll('.news-filter button').forEach(b => b.classList.remove('aktiv'));
