@@ -8,7 +8,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --blau: #1535a8; --tuerkis: #68d2df; --gelb: #f7af10; --gruen: #5a9e6f;
+      --blau: #1535a8; --tuerkis: #68d2df; --gelb: #f7af10;
       --weiss: #ffffff; --hell: #f4f4f4; --text: #333333;
       --schrift: 'Poppins', sans-serif;
     }
@@ -45,113 +45,85 @@
     .seiten-hero-logo img { height: 140px; width: auto; }
 
     /* WEGWEISER LISTE */
-    .wegweiser-liste { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; display: flex; flex-direction: column; gap: 2rem; }
+    .wegweiser-liste { max-width: 1100px; margin: 3rem auto; padding: 0 2rem 4rem; display: flex; flex-direction: column; gap: 2rem; }
 
-    /* KARTE – abwechselnd Bild links/rechts */
+    /* KARTE */
     .ww-karte {
       display: grid;
       grid-template-columns: 1fr 1fr;
       border: 1.5px solid #ddd;
-      border-radius: 4px;
+      border-radius: 2px;
       overflow: hidden;
-      min-height: 320px;
+      min-height: 260px;
     }
 
-    .ww-karte.bild-rechts { }
-    .ww-karte.bild-links .ww-bild { order: -1; }
+    /* Bild */
+    .ww-bild { overflow: hidden; min-height: 260px; }
+    .ww-bild img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .ww-bild {
-      position: relative;
-      overflow: hidden;
-      min-height: 280px;
-    }
-
-    .ww-bild img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
+    /* Text */
     .ww-inhalt {
-      padding: 2.5rem 3rem;
+      padding: 2.5rem 2.8rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.8rem;
+      gap: 0.7rem;
+      background: #fff;
     }
 
     .ww-label {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #aaa;
     }
 
     .ww-inhalt h2 {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 600;
-      color: #1a1a1a;
+      color: #111;
       line-height: 1.3;
       border: none;
       padding: 0;
       display: block;
     }
 
-    .ww-datum { font-size: 0.8rem; color: #bbb; }
-
     .ww-inhalt p {
-      font-size: 0.9rem;
-      color: #555;
-      line-height: 1.75;
-    }
-
-    .ww-inhalt h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--blau);
-      margin-top: 1rem;
-    }
-
-    .ww-inhalt ul {
-      margin-left: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .ww-inhalt ul li {
       font-size: 0.88rem;
-      color: #555;
+      color: #777;
       line-height: 1.7;
-      margin-bottom: 0.3rem;
     }
 
+    /* "Mehr erfahren" Button */
     .ww-mehr {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-top: 1rem;
-      border: 1.5px solid #333;
+      margin-top: 0.5rem;
+      border: 1.5px solid #222;
       border-radius: 30px;
-      padding: 0.5rem 1.4rem;
+      padding: 0.45rem 1.4rem;
       text-decoration: none;
-      color: #333;
-      font-size: 0.88rem;
+      color: #222;
+      font-size: 0.85rem;
       font-weight: 500;
       width: fit-content;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
-    .ww-mehr:hover { border-color: var(--blau); color: var(--blau); }
+    .ww-mehr:hover { background: var(--blau); border-color: var(--blau); color: #fff; }
 
-    .fussnoten { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee; }
-    .fussnoten p { font-size: 0.75rem; color: #bbb; line-height: 1.6; margin-bottom: 0.2rem; }
-    .fussnoten a { color: #bbb; word-break: break-all; }
+    /* Abwechselnde Reihenfolge: ungerade = Bild links, gerade = Text links */
+    .ww-karte.bild-links .ww-bild { order: 1; }
+    .ww-karte.bild-links .ww-inhalt { order: 2; }
+    .ww-karte.bild-rechts .ww-inhalt { order: 1; }
+    .ww-karte.bild-rechts .ww-bild { order: 2; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 800px) {
       .ww-karte { grid-template-columns: 1fr; }
-      .ww-karte.bild-links .ww-bild { order: 0; }
-      .ww-bild { min-height: 200px; }
-      .ww-inhalt { padding: 1.5rem; }
+      .ww-karte.bild-links .ww-bild,
+      .ww-karte.bild-rechts .ww-bild { order: 1; min-height: 200px; }
+      .ww-karte.bild-links .ww-inhalt,
+      .ww-karte.bild-rechts .ww-inhalt { order: 2; }
       .seiten-hero { padding: 2rem; flex-direction: column; gap: 1.5rem; }
       .seiten-hero-text h1 { font-size: 2rem; }
     }
@@ -210,33 +182,18 @@
       <div class="ww-inhalt">
         <span class="ww-label">Wegweiser</span>
         <h2>Bundeskabinett beschließt Gesetzesentwurf zur Stärkung der Herzgesundheit</h2>
-        <p>Das Jahrzehnt der Lunge begrüßt das „Gesetz zur Stärkung der Herzgesundheit" (Gesundes-Herz-Gesetz – GHG). Die im Referentenentwurf des BMG vorgeschlagenen Maßnahmen zur Früherkennung und Verbesserung der Versorgung sind zielführend, um die durch Herz-Kreislauf-Erkrankungen verursachte Krankheitslast zu reduzieren. Nachbesserungsbedarf besteht hinsichtlich des bislang unzureichend berücksichtigten Zusammenhangs zwischen chronischen Lungen- und Atemwegserkrankungen und Herz-Kreislauf-Erkrankungen. Das Jahrzehnt der Lunge hat dazu Vorschläge erarbeitet:</p>
-        <h3>1. Verbesserung der Früherkennung bei Kindern und Jugendlichen</h3>
-        <p>Zusätzlich zur Früherkennung von Fettstoffwechselstörungen sollte ein systematisches Screening auf Allergien und Risikofaktoren für chronische Lungenerkrankungen eingeführt werden. Mit wenigen gezielten Fragen zur Familienanamnese und Symptomen wie Husten und Atemwegsinfekten können Risikokinder frühzeitig identifiziert und behandelt werden.</p>
-        <h3>2. Verbesserung der Früherkennung bei Erwachsenen</h3>
-        <p>Die Früherkennung chronischer Lungen- und Atemwegserkrankungen sollte im Rahmen der Check-up-Untersuchungen im Alter von 25, 35 und 50 Jahren verstärkt werden, da diese Krankheiten häufig zusammen mit Herzkrankheiten auftreten und ähnliche Symptome aufweisen.</p>
-        <h3>3. Stärkung von Disease-Management-Programmen</h3>
-        <p>Die Maßnahmen zur Förderung und Beschleunigung der Disease-Management-Programme (DMPs) sind zielführend, jedoch bedarf es einer umfassenden Evaluierung und Optimierung der gesetzlichen DMP-Rahmenbedingungen.</p>
-        <h3>4. Reduzierung des Nikotinkonsums</h3>
-        <p>Rauchen ist das größte vermeidbare Gesundheitsrisiko, das sowohl Lunge als auch Herz schädigt. Wir begrüßen den Entwurf, den Erstattungsanspruch der Arzneimittelkosten zur Tabakentwöhnung durch die GKV auszuweiten und häufiger als alle drei Jahre zu finanzieren.</p>
-        <a href="Wegweiser-GHG.pdf" target="_blank" class="ww-mehr">Mehr erfahren</a>
+        <p>Das Jahrzehnt der Lunge begrüßt das „Gesetz zur Stärkung der Herzgesundheit" (Gesundes-Herz-Gesetz – GHG). Die im Referentenentwurf des BMG vorgeschlagenen Maßnahmen zur Früherkennung und Verbesserung der Versorgung sind zielführend …</p>
+        <a href="wegweiser-ghg.html" class="ww-mehr">Mehr erfahren</a>
       </div>
     </div>
 
-    <!-- 2: BIPAM – Bild rechts -->
+    <!-- 2: BIPAM – Text links, Bild rechts -->
     <div class="ww-karte bild-rechts">
       <div class="ww-inhalt">
         <span class="ww-label">Wegweiser</span>
-        <span class="ww-datum">25.09.2024</span>
         <h2>Gesetzesentwurf zur Stärkung der Öffentlichen Gesundheit passiert Bundeskabinett</h2>
-        <p>Mit dem Kabinettsbeschluss zum Entwurf des Gesetzes zur Stärkung der Öffentlichen Gesundheit und der damit verbundenen Errichtung des BIPAM setzt die Bundesregierung ein zentrales gesundheitspolitisches Versprechen des Ampelkoalitionsvertrages um. Das „Jahrzehnt der Lunge" begrüßt dieses Vorhaben und hat 3 Handlungsempfehlungen formuliert:</p>
-        <h3>Verbesserung der Aufklärung</h3>
-        <p>Die Gesundheitskompetenz ist entscheidend für die Prävention und Früherkennung chronischer Lungen- und Atemwegserkrankungen. Das BIPAM sollte ein zielgruppenspezifisches Konzept entwickeln, um die Kenntnisse über diese Erkrankungen in der Bevölkerung zu erhöhen.</p>
-        <h3>Impfprävention stärken</h3>
-        <p>Die Sensibilisierung für Impfprävention sollte sowohl in der allgemeinen Bevölkerung als auch bei Betroffenen chronischer Lungen- und Atemwegserkrankungen eine zentrale Rolle spielen. Impfstoffe gegen Lungenkrankheiten können insbesondere bei Menschen mit Asthma, COPD und Lungenfibrose das Risiko einer akuten Verschlechterung verringern.</p>
-        <h3>Effektives Monitoring</h3>
-        <p>Das BIPAM sollte eine erweiterte Überwachung chronischer Lungen- und Atemwegserkrankungen einführen, die neben dem Krankheitsgeschehen auch Versorgungsqualität und Folgeerkrankungen erfasst.</p>
-        <a href="Wegweiser-BIPAM.pdf" target="_blank" class="ww-mehr">Mehr erfahren</a>
+        <p>Mit dem Kabinettsbeschluss zum Entwurf des Gesetzes zur Stärkung der Öffentlichen Gesundheit und der damit verbundenen Errichtung des BIPAM setzt die Bundesregierung ein zentrales gesundheitspolitisches Versprechen um …</p>
+        <a href="wegweiser-bipam.html" class="ww-mehr">Mehr erfahren</a>
       </div>
       <div class="ww-bild">
         <img src="JdL_Wegweiser_Grafik_BIPAM.jpg" alt="Gesetzesentwurf zur Stärkung der Öffentlichen Gesundheit" />
@@ -250,50 +207,22 @@
       </div>
       <div class="ww-inhalt">
         <span class="ww-label">Wegweiser</span>
-        <span class="ww-datum">12.09.2023</span>
         <h2>Tabakprävention und -entwöhnung</h2>
-        <p>Rauchen und Passivrauchen erhöhen das Risiko, an chronischen Lungen- und Atemwegserkrankungen zu erkranken. Obwohl Rauchen das größte vermeidbare Gesundheitsrisiko ist, bleibt die Raucherprävalenz in Deutschland besorgniserregend hoch: ca. 35 % aller Deutschen sind Raucher:innen. Das Jahrzehnt der Lunge fordert eine Initiative „Deutschland rauchfrei 2030", die das Ziel verfolgt, den Anteil der Raucher:innen auf unter 10 Prozent zu senken.</p>
-        <h3>Prävention</h3>
-        <p>Eine Verankerung des Tabakthemas im Nationalen Präventionsplan würde der Bedeutung dieses Indikationsbereiches Rechnung tragen und chronische Lungen- und Atemwegserkrankungen als Themen der öffentlichen Gesundheit adressieren.</p>
-        <h3>Entwöhnung</h3>
-        <p>Kostenfreie und niedrigschwellige Angebote zur Tabak- und Nikotinentwöhnung müssen ausgebaut werden. Ein Erstattungsanspruch der Arzneimittelkosten zur Tabakentwöhnung durch die GKV darf nicht auf schwere Raucher:innen begrenzt sein. Entwöhnungsprogramme, die während eines Krankenhausaufenthaltes beginnen und dann ambulant weitergeführt werden, müssen finanziert werden.</p>
-        <h3>Nichtraucherschutz</h3>
-        <p>Besonders Kinder und Jugendliche sind den gesundheitlichen Gefahren des Passivrauchens ausgesetzt. Das geplante Verbot des Tabakrauchens in PKWs, wenn Kinder und Schwangere mitfahren, ist ein Schritt in die richtige Richtung. Die Landesnichtraucherschutzgesetze müssen bundesweit vereinheitlicht werden.</p>
-        <a href="Wegweiser-Tabakpraevention-und-entwoehnung.pdf" target="_blank" class="ww-mehr">Mehr erfahren</a>
-        <div class="fussnoten">
-          <p><sup>1</sup> <a href="https://www.debra-study.info/" target="_blank">debra-study.info</a></p>
-          <p><sup>2</sup> <a href="https://www.pneumologie.de/aktuelles-service/presse/pressemitteilungen/zum-weltnichtrauchertag-am-31-mai-e-zigaretten-eignen-sich-nicht-zurtabakentwoehnung-jugendliche-besser-aufklaeren" target="_blank">pneumologie.de – Weltnichtrauchertag</a></p>
-          <p><sup>3</sup> <a href="https://www.krebsgesellschaft.de/onko-internetportal/basis-informationen-krebs/krebsarten/definition/ursachen-und-risikofaktoren.html" target="_blank">krebsgesellschaft.de</a></p>
-          <p><sup>4</sup> <a href="https://www.patienten-information.de/patientenblaetter/copd-rauchstopp" target="_blank">patienten-information.de</a></p>
-          <p><sup>5</sup> <a href="https://www.dkfz.de/de/krebspraevention/Krebsrisiken_das-sagt-die-Wissenschaft/1_Risikofaktor_Rauchen/8_Passivrauchen.html" target="_blank">dkfz.de – Passivrauchen</a></p>
-          <p><sup>6</sup> <a href="https://www.bundesgesundheitsministerium.de/service/begriffe-von-a-z/r/rauchen.html" target="_blank">bundesgesundheitsministerium.de</a></p>
-        </div>
+        <p>Rauchen und Passivrauchen erhöhen das Risiko, an chronischen Lungen- und Atemwegserkrankungen zu erkranken. Obwohl Rauchen das größte vermeidbare Gesundheitsrisiko ist, bleibt die Raucherprävalenz in Deutschland besorgniserregend hoch …</p>
+        <a href="wegweiser-tabak.html" class="ww-mehr">Mehr erfahren</a>
       </div>
     </div>
 
-    <!-- 4: Allergiescreening – Bild rechts -->
+    <!-- 4: Allergiescreening – Text links, Bild rechts -->
     <div class="ww-karte bild-rechts">
       <div class="ww-inhalt">
         <span class="ww-label">Wegweiser</span>
-        <span class="ww-datum">12.09.2023</span>
-        <h2>Allergiescreenings im Kindes- und Jugendalter</h2>
-        <p>Asthma ist mit rund 6,7 Millionen Diagnosen (Stand 2019) die zahlenmäßig bedeutsamste Erkrankung unter den chronischen Lungenerkrankungen in Deutschland – betroffen ist etwa jeder zwölfte Mensch. Der Beginn liegt häufig in der Kindheit. Nach aktuellen Zahlen des Weißbuchs Lunge sind über eine Million Kinder und Jugendliche von Asthma betroffen. Für die Altersgruppe der 10- bis 19-Jährigen beträgt die Diagnoseprävalenz rund 8,3 % – Tendenz steigend.</p>
-        <h3>Lungengesundheit beginnt in der frühen Kindheit</h3>
-        <p>Eine frühe Schädigung der Lunge im Kindesalter begünstigt nicht nur schwerere Verläufe der Erkrankung und chronische Lungenerkrankungen im Erwachsenenalter, sondern führt auch zu einer zusätzlichen finanziellen Belastung des Gesundheitssystems. Langfristige Lungenschädigungen können verhindert werden, wenn Kinder mit Risiko für Asthma frühzeitig identifiziert und behandelt werden.</p>
-        <h3>Systematische Allergiescreenings im Kindesalter</h3>
-        <p>Durch die Einführung von verpflichtenden Allergiescreenings in die Vorsorgeuntersuchungen könnten Kinder und Jugendliche mit Asthmarisiko frühzeitig erkannt und behandelt werden. Frühzeitig erkannt bestehen für die Entwicklung oder Verschlechterung allergischer Erkrankungen bereits jetzt Präventionsoptionen.</p>
-        <h3>Gezielte Identifizierung von Risiko- und Symptomkindern</h3>
-        <p>Mit wenigen, aber fokussierten Fragen – etwa nach der Familienanamnese hinsichtlich Allergien oder nach bisherigen Atemwegsinfekten – besteht die Möglichkeit, Risikokinder rasch und unkompliziert zu erkennen. Werden erste Anhaltspunkte für Asthma gefunden, bedarf es weiterer gezielter Diagnostik wie einer Untersuchung auf das Vorliegen einer allergischen Sensibilisierung oder einer Lungenfunktionsuntersuchung.</p>
-        <a href="Wegweiser-Allergie-Screenings-im-Kindes-und-Jugendalter.pdf" target="_blank" class="ww-mehr">Mehr erfahren</a>
-        <div class="fussnoten">
-          <p><sup>1,3,4</sup> <a href="https://pneumologie.de/storage/app/media/uploaded-files/20230320_Wei%C3%9Fbuch_Lunge_2023.pdf" target="_blank">Weißbuch Lunge 2023</a></p>
-          <p><sup>2</sup> <a href="https://www.gpau.de/fileadmin/user_upload/GPA/dateien_indiziert/Elternratgeber/EKI_Asthma_1.pdf" target="_blank">gpau.de – Asthma im Kindesalter</a></p>
-          <p style="margin-top:0.4rem;color:#ccc;">DE-61681</p>
-        </div>
+        <h2>Allergiescreening im Kinder- und Jugendalter</h2>
+        <p>Lungengesundheit beginnt bereits in der frühen Kindheit …</p>
+        <a href="wegweiser-allergiescreening.html" class="ww-mehr">Mehr erfahren</a>
       </div>
       <div class="ww-bild">
-        <img src="JdL_Wegweiser_Grafik_Allergiescreenings.pdf" alt="Allergiescreenings im Kindes- und Jugendalter"
-             onerror="this.src='JdL_Wegweiser_Grafik_Allergiescreenings.jpg'" />
+        <img src="JdL_Wegweiser_Grafik_Allergiescreenings.jpg" alt="Allergiescreening im Kinder- und Jugendalter" />
       </div>
     </div>
 
