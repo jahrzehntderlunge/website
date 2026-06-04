@@ -25,13 +25,7 @@
     nav ul li .dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--blau); box-shadow: 0 6px 20px rgba(0,0,0,0.3); min-width: 220px; z-index: 300; }
     nav ul li:hover .dropdown { display: block; }
     nav ul li .dropdown a { padding: 0.7rem 1.2rem; font-weight: 400; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--weiss); text-transform: none; letter-spacing: 0; }
-    .seiten-hero { background: var(--blau); padding: 4rem 2rem 3rem; text-align: center; }
-    .seiten-hero h1 { font-size: 2.5rem; color: var(--weiss); font-weight: 300; margin-bottom: 1rem; }
-    .seiten-hero p { color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto; font-size: 1rem; line-height: 1.7; }
-    main { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; }
-    h2 { font-size: 1.6rem; color: #1a1a1a; font-weight: 400; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 3px solid var(--blau); display: inline-block; }
-    p { font-size: 0.95rem; color: #555; line-height: 1.8; margin-bottom: 1rem; }
-    footer { background: var(--blau); border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem; margin-top: 4rem; }
+    footer { background: var(--blau); border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem; margin-top: 0; }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-bottom: 2rem; }
     .footer-nav ul { list-style: none; }
     .footer-nav ul li a { color: var(--weiss); text-decoration: underline; font-size: 0.95rem; font-weight: 600; display: block; padding: 0.4rem 0; }
@@ -44,6 +38,144 @@
     .footer-bottom a:hover { color: var(--weiss); }
     @media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr; } nav ul { flex-wrap: wrap; justify-content: center; } }
 
+    /* ══ HERO ══ */
+    .positionen-hero {
+      background: var(--blau);
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 220px;
+    }
+
+    .positionen-hero-text {
+      color: var(--weiss);
+    }
+
+    .positionen-hero-text .strich {
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background: var(--weiss);
+      margin-bottom: 1rem;
+    }
+
+    .positionen-hero-text h1 {
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--weiss);
+      line-height: 1.1;
+    }
+
+    .positionen-hero-logo img {
+      height: 140px;
+      width: auto;
+    }
+
+    /* ══ KARTEN BEREICH ══ */
+    .positionen-karten {
+      background: var(--gelb);
+      padding: 5rem 4rem;
+      min-height: 600px;
+    }
+
+    .positionen-karten-grid {
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Karte – Grundzustand: hellgrau */
+    .pos-karte {
+      background: #e0e0e0;
+      border-radius: 20px;
+      padding: 2rem;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      transition: background 0.3s;
+    }
+
+    .pos-karte:hover {
+      background: var(--blau);
+    }
+
+    /* SVG-Ecke oben links */
+    .pos-karte .ecke-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 110px;
+      height: 200px;
+    }
+
+    .pos-karte .ecke-svg path {
+      fill: #c8c8c8;
+      transition: fill 0.3s;
+    }
+
+    .pos-karte:hover .ecke-svg path {
+      fill: var(--tuerkis);
+    }
+
+    /* Pfeil oben rechts */
+    .pos-karte .pfeil {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+
+    .pos-karte .pfeil line,
+    .pos-karte .pfeil polyline {
+      stroke: #aaa;
+      transition: stroke 0.3s;
+    }
+
+    .pos-karte:hover .pfeil line,
+    .pos-karte:hover .pfeil polyline {
+      stroke: rgba(255,255,255,0.7);
+    }
+
+    /* Text */
+    .pos-karte-inhalt {
+      position: relative;
+      z-index: 1;
+      margin-top: 1.5rem;
+    }
+
+    .pos-karte h3 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #333;
+      line-height: 1.4;
+      transition: color 0.3s;
+    }
+
+    .pos-karte:hover h3 {
+      color: var(--weiss);
+    }
+
+    .pos-karte p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+      margin-top: 0.6rem;
+      transition: color 0.3s;
+    }
+
+    .pos-karte:hover p {
+      color: rgba(255,255,255,0.85);
+    }
+
+    @media (max-width: 700px) {
+      .positionen-karten-grid { grid-template-columns: 1fr; }
+      .positionen-hero { padding: 2rem; flex-direction: column; gap: 1.5rem; }
+      .positionen-hero-text h1 { font-size: 2rem; }
+      .positionen-karten { padding: 3rem 2rem; }
+    }
   </style>
 </head>
 <body>
@@ -62,7 +194,7 @@
           </li>
           <li class="sep">·</li>
           <li>
-            <a href="positionen.html">Positionen</a>
+            <a href="positionen.html" class="aktiv">Positionen</a>
             <div class="dropdown">
               <a href="politischer-kompass.html">Politische Kompasse</a>
               <a href="wegweiser.html">Wegweiser</a>
@@ -79,28 +211,53 @@
     </div>
   </header>
 
-  <section class="seiten-hero">
-    <h1>Positionen</h1>
-    <p>Klare politische Positionen für eine bessere Lungengesundheit.</p>
+  <!-- HERO -->
+  <section class="positionen-hero">
+    <div class="positionen-hero-text">
+      <span class="strich"></span>
+      <h1>Positionen</h1>
+    </div>
+    <div class="positionen-hero-logo">
+      <img src="Logo.png" alt="Jahrzehnt der Lunge" />
+    </div>
   </section>
 
-  <main>
-    <h2>Positionen</h2>
-    <p>Das Jahrzehnt der Lunge formuliert klare politische Positionen für eine bessere Lungengesundheit in Deutschland.</p>
+  <!-- KARTEN -->
+  <section class="positionen-karten">
+    <div class="positionen-karten-grid">
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;">
-      <a href="politischer-kompass.html" style="background:var(--gelb);padding:2.5rem;border-radius:8px;text-decoration:none;display:block;">
-        <h3 style="color:var(--blau);font-size:1.3rem;margin-bottom:0.8rem;font-weight:600;">Politische Kompasse</h3>
-        <p style="color:#333;font-size:0.9rem;">Politische Impulse und Lösungsvorschläge zu Prävention, Früherkennung und strukturierter Versorgung.</p>
-        <span style="display:inline-block;margin-top:1rem;color:var(--blau);font-weight:700;">Mehr erfahren →</span>
+      <a class="pos-karte" href="politischer-kompass.html">
+        <!-- Ecke SVG oben links -->
+        <svg class="ecke-svg" viewBox="0 0 121 221" xmlns="http://www.w3.org/2000/svg">
+          <path d="M87.4,5.8 L91.4,20.8 L93.9,29.9 L98.1,45.7 L101.2,57.1 L102.9,63.9 L104.5,69.7 L106,75.8 L107.6,81.8 L109.1,87.7 L110.1,91.6 L111.5,97.2 L112.7,101.8 L113.8,106.3 L114.8,110.6 L115.8,114.7 L116.5,117.6 L116.9,119.5 L117.6,122.3 L118.1,125.1 L118.4,126.4 L118.7,127.8 L119,129.7 L119.3,131.7 L119.7,134.2 L119.9,136.7 L120,137.9 C121.1,150 119.5,160 114.2,168.3 C106,181.1 96.3,194.4 85,206.9 C71.5,221.7 59.2,221.9 47.4,218.3 L43.9,217.1 L39,215.2 L33.9,213 L29.8,211.2 C18.7,206.4 8.4,201.4 0,195.2 L0,20.1 C0,9 9,0 20.1,0 L85.4,0 Z"/>
+        </svg>
+        <!-- Pfeil oben rechts -->
+        <svg class="pfeil" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="6" y1="26" x2="26" y2="6" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="12,6 26,6 26,20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <div class="pos-karte-inhalt">
+          <h3>Politische Kompasse</h3>
+          <p>Politische Impulse und Lösungsvorschläge zu Prävention, Früherkennung und strukturierter Versorgung.</p>
+        </div>
       </a>
-      <a href="wegweiser.html" style="background:var(--hell);padding:2.5rem;border-radius:8px;text-decoration:none;display:block;border:2px solid var(--tuerkis);">
-        <h3 style="color:var(--blau);font-size:1.3rem;margin-bottom:0.8rem;font-weight:600;">Wegweiser</h3>
-        <p style="color:#555;font-size:0.9rem;">Orientierung zu aktuellen gesundheitspolitischen Entwicklungen und Maßnahmen im Bereich Lungengesundheit.</p>
-        <span style="display:inline-block;margin-top:1rem;color:var(--tuerkis);font-weight:700;">Mehr erfahren →</span>
+
+      <a class="pos-karte" href="wegweiser.html">
+        <svg class="ecke-svg" viewBox="0 0 121 221" xmlns="http://www.w3.org/2000/svg">
+          <path d="M87.4,5.8 L91.4,20.8 L93.9,29.9 L98.1,45.7 L101.2,57.1 L102.9,63.9 L104.5,69.7 L106,75.8 L107.6,81.8 L109.1,87.7 L110.1,91.6 L111.5,97.2 L112.7,101.8 L113.8,106.3 L114.8,110.6 L115.8,114.7 L116.5,117.6 L116.9,119.5 L117.6,122.3 L118.1,125.1 L118.4,126.4 L118.7,127.8 L119,129.7 L119.3,131.7 L119.7,134.2 L119.9,136.7 L120,137.9 C121.1,150 119.5,160 114.2,168.3 C106,181.1 96.3,194.4 85,206.9 C71.5,221.7 59.2,221.9 47.4,218.3 L43.9,217.1 L39,215.2 L33.9,213 L29.8,211.2 C18.7,206.4 8.4,201.4 0,195.2 L0,20.1 C0,9 9,0 20.1,0 L85.4,0 Z"/>
+        </svg>
+        <svg class="pfeil" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="6" y1="26" x2="26" y2="6" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="12,6 26,6 26,20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <div class="pos-karte-inhalt">
+          <h3>Wegweiser</h3>
+          <p>Orientierung zu aktuellen gesundheitspolitischen Entwicklungen und Maßnahmen im Bereich Lungengesundheit.</p>
+        </div>
       </a>
+
     </div>
-  </main>
+  </section>
 
   <footer>
     <div class="footer-inner">
@@ -134,7 +291,7 @@
     </div>
     <div class="footer-bottom">
       <p>2026 © Jahrzehnt der Lunge</p>
-      <a href="#">Impressum</a>
+      <a href="impressum.html">Impressum</a>
     </div>
   </footer>
 
