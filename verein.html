@@ -20,21 +20,15 @@
     nav ul li + li { margin-left: 0.3rem; }
     nav ul li.sep { color: rgba(255,255,255,0.4); padding: 0 0.2rem; pointer-events: none; }
     nav ul li { position: relative; }
-    nav ul li a { display: block; padding: 1.2rem 1rem; text-decoration: none; color: var(--weiss); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
+    nav ul li a { display: block; padding: 1.2rem 1rem; text-decoration: none; color: var(--weiss); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
     nav ul li a:hover, nav ul li a.aktiv { color: var(--tuerkis); }
     nav ul li .dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--blau); box-shadow: 0 6px 20px rgba(0,0,0,0.3); min-width: 220px; z-index: 300; }
     nav ul li:hover .dropdown { display: block; }
     nav ul li .dropdown a { padding: 0.7rem 1.2rem; font-weight: 400; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--weiss); text-transform: none; letter-spacing: 0; }
-    .seiten-hero { background: var(--blau); padding: 4rem 2rem 3rem; text-align: center; }
-    .seiten-hero h1 { font-size: 2.5rem; color: var(--weiss); font-weight: 300; margin-bottom: 1rem; }
-    .seiten-hero p { color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto; font-size: 1rem; line-height: 1.7; }
-    main { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; }
-    h2 { font-size: 1.6rem; color: #1a1a1a; font-weight: 400; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 3px solid var(--blau); display: inline-block; }
-    p { font-size: 0.95rem; color: #555; line-height: 1.8; margin-bottom: 1rem; }
-    footer { background: var(--blau); border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem; margin-top: 4rem; }
+    footer { background: var(--blau); border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem; margin-top: 0; }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-bottom: 2rem; }
-    .footer-nav ul { list-style: none; }
-    .footer-nav ul li a { color: var(--weiss); text-decoration: underline; font-size: 0.95rem; font-weight: 600; display: block; padding: 0.4rem 0; }
+    .footer-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.2rem 0; }
+    .footer-nav ul li a { color: var(--weiss); text-decoration: underline; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-right: 1.2rem; margin-bottom: 0.4rem; padding: 0.2rem 0; }
     .footer-nav ul li a:hover { color: var(--tuerkis); }
     .footer-kontakt h3 { color: var(--weiss); margin-bottom: 1rem; }
     .btn-kontakt { background: var(--tuerkis); color: var(--blau); border: none; padding: 0.7rem 2rem; font-size: 0.95rem; font-weight: 600; border-radius: 30px; cursor: pointer; font-family: var(--schrift); }
@@ -44,6 +38,103 @@
     .footer-bottom a:hover { color: var(--weiss); }
     @media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr; } nav ul { flex-wrap: wrap; justify-content: center; } }
 
+    /* HERO */
+    .seiten-hero { background: var(--blau); padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; min-height: 200px; }
+    .seiten-hero-text .strich { display: block; width: 2rem; height: 2px; background: var(--weiss); margin-bottom: 1rem; }
+    .seiten-hero-text h1 { font-size: 3rem; font-weight: 300; color: var(--weiss); line-height: 1.1; }
+    .seiten-hero-logo img { height: 140px; width: auto; }
+
+    /* TEXT BEREICH */
+    .verein-text {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    .verein-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    /* GELBER KARTEN BEREICH */
+    .gremien-bereich {
+      background: var(--gelb);
+      padding: 4rem;
+    }
+
+    .gremien-bereich-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gremien-titel {
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background: var(--blau);
+      margin-bottom: 1rem;
+    }
+
+    .gremien-bereich h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 3rem;
+      border: none;
+      padding: 0;
+      display: block;
+      line-height: 1.2;
+    }
+
+    /* Karten Grid */
+    .gremien-karten {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Karte */
+    .gremien-karte {
+      background: #e0e0e0;
+      border-radius: 20px;
+      padding: 2rem;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      transition: background 0.3s;
+    }
+
+    .gremien-karte:hover { background: var(--blau); }
+
+    /* SVG Ecke oben links */
+    .gremien-karte .ecke-svg { position: absolute; top: 0; left: 0; width: 110px; height: 200px; }
+    .gremien-karte .ecke-svg path { fill: #c8c8c8; transition: fill 0.3s; }
+    .gremien-karte:hover .ecke-svg path { fill: var(--tuerkis); }
+
+    /* Pfeil oben rechts */
+    .gremien-karte .pfeil { position: absolute; top: 1.5rem; right: 1.5rem; }
+    .gremien-karte .pfeil line,
+    .gremien-karte .pfeil polyline { stroke: #aaa; transition: stroke 0.3s; }
+    .gremien-karte:hover .pfeil line,
+    .gremien-karte:hover .pfeil polyline { stroke: rgba(255,255,255,0.8); }
+
+    /* Text */
+    .gremien-karte-inhalt { position: relative; z-index: 1; margin-top: 1.5rem; }
+    .gremien-karte h3 { font-size: 1.1rem; font-weight: 400; color: #222; line-height: 1.4; transition: color 0.3s; }
+    .gremien-karte:hover h3 { color: var(--weiss); }
+
+    @media (max-width: 900px) {
+      .gremien-karten { grid-template-columns: repeat(2, 1fr); }
+      .gremien-bereich { padding: 2rem; }
+      .seiten-hero { padding: 2rem; flex-direction: column; gap: 1.5rem; }
+      .seiten-hero-text h1 { font-size: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .gremien-karten { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -79,32 +170,104 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="seiten-hero">
-    <h1>Der Verein</h1>
-    <p>Die Initiative Jahrzehnt der Lunge setzt sich für bessere Lungengesundheit in Deutschland ein.</p>
+    <div class="seiten-hero-text">
+      <span class="strich"></span>
+      <h1>Der Verein</h1>
+    </div>
+    <div class="seiten-hero-logo">
+      <img src="Logo.png" alt="Jahrzehnt der Lunge" />
+    </div>
   </section>
 
-  <main>
-    <h2>Der Verein</h2>
+  <!-- TEXT -->
+  <div class="verein-text">
     <p>Chronische Lungen- und Atemwegserkrankungen gehören zu den größten gesundheitlichen Herausforderungen unserer Zeit. Mit dem Jahrzehnt der Lunge setzen wir uns für eine Zukunft ein, in der diese Erkrankungen möglichst vermieden, früh erkannt und nach aktuellen Leitlinien optimal behandelt werden. Unser Ziel: die Lebensqualität der Betroffenen deutlich verbessern, ihre Lebenserwartung erhöhen und die Stabilität unseres Gesundheitssystems nachhaltig sichern.</p>
     <p>Wir sind ein interdisziplinärer Zusammenschluss von Expert:innen aus Medizin, Patient:innenvertretungen und Industrie. Die Initiative „Jahrzehnt der Lunge" wurde 2021 ins Leben gerufen und im April 2025 im Rahmen beim DGP-Kongress in Leipzig als Verein gegründet. Als gesundheitspolitische Plattform vereinen wir unterschiedliche Perspektiven und Expertisen, um gemeinsam konkrete Vorschläge für politische Veränderungen, im Sinne der Lungengesundheit zum Wohle der Patient:innen – zu erarbeiten und anzustoßen.</p>
     <p>Über 14 Millionen Menschen in Deutschland leben mit chronischen Lungen- und Atemwegserkrankungen. Trotz der gesundheitspolitischen und bevölkerungsmedizinischen Relevanz zählen diese Erkrankungen zu den vergessenen Volkskrankheiten. Denn politisch finden sie bisher nicht statt. Das ist folgenschwer: Denn mit einer verbesserten Prävention, Früherkennung und Versorgung ließen sich viele (Folge-) Erkrankungen verhindern und die Belastung für das Gesundheitssystem deutlich reduzieren. Deshalb setzen wir uns für die Entwicklung eines Nationalen Aktionsplans Lunge ein – der Maßnahmen für eine bessere Prävention, Früherkennung und Versorgung bündelt.</p>
-    <br>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;">
-      <a href="vorstand.html" style="background:var(--hell);padding:2rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--blau);">
-        <h3 style="color:var(--blau);margin-bottom:0.5rem;">Vorstand &amp; Gremien</h3>
-        <p style="font-size:0.85rem;">Lernen Sie unseren Vorstand kennen.</p>
-      </a>
-      <a href="satzung.html" style="background:var(--hell);padding:2rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--tuerkis);">
-        <h3 style="color:var(--blau);margin-bottom:0.5rem;">Satzung</h3>
-        <p style="font-size:0.85rem;">Die rechtliche Grundlage unseres Vereins.</p>
-      </a>
-      <a href="mitgliedschaft.html" style="background:var(--hell);padding:2rem;border-radius:8px;text-decoration:none;border-left:4px solid var(--gelb);">
-        <h3 style="color:var(--blau);margin-bottom:0.5rem;">Mitgliedschaft</h3>
-        <p style="font-size:0.85rem;">Werden Sie Teil unserer Initiative.</p>
-      </a>
+  </div>
+
+  <!-- GREMIEN KARTEN -->
+  <section class="gremien-bereich">
+    <div class="gremien-bereich-inner">
+      <span class="gremien-titel"></span>
+      <h2>Gremien des Vereins</h2>
+      <div class="gremien-karten">
+
+        <!-- Vorstand -->
+        <a class="gremien-karte" href="vorstand.html#vorstand">
+          <svg class="ecke-svg" viewBox="0 0 121 221" xmlns="http://www.w3.org/2000/svg">
+            <path d="M87.4,5.8 L91.4,20.8 L93.9,29.9 L98.1,45.7 L101.2,57.1 L102.9,63.9 L104.5,69.7 L106,75.8 L107.6,81.8 L109.1,87.7 L110.1,91.6 L111.5,97.2 L112.7,101.8 L113.8,106.3 L114.8,110.6 L115.8,114.7 L116.5,117.6 L116.9,119.5 L117.6,122.3 L118.1,125.1 L118.4,126.4 L118.7,127.8 L119,129.7 L119.3,131.7 L119.7,134.2 L119.9,136.7 L120,137.9 C121.1,150 119.5,160 114.2,168.3 C106,181.1 96.3,194.4 85,206.9 C71.5,221.7 59.2,221.9 47.4,218.3 L43.9,217.1 L39,215.2 L33.9,213 L29.8,211.2 C18.7,206.4 8.4,201.4 0,195.2 L0,20.1 C0,9 9,0 20.1,0 L85.4,0 Z"/>
+          </svg>
+          <svg class="pfeil" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="6" y1="26" x2="26" y2="6" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="12,6 26,6 26,20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <div class="gremien-karte-inhalt">
+            <h3>Vorstand</h3>
+          </div>
+        </a>
+
+        <!-- Wissenschaftlicher Beirat -->
+        <a class="gremien-karte" href="vorstand.html#wissenschaftlicher-beirat">
+          <svg class="ecke-svg" viewBox="0 0 121 221" xmlns="http://www.w3.org/2000/svg">
+            <path d="M87.4,5.8 L91.4,20.8 L93.9,29.9 L98.1,45.7 L101.2,57.1 L102.9,63.9 L104.5,69.7 L106,75.8 L107.6,81.8 L109.1,87.7 L110.1,91.6 L111.5,97.2 L112.7,101.8 L113.8,106.3 L114.8,110.6 L115.8,114.7 L116.5,117.6 L116.9,119.5 L117.6,122.3 L118.1,125.1 L118.4,126.4 L118.7,127.8 L119,129.7 L119.3,131.7 L119.7,134.2 L119.9,136.7 L120,137.9 C121.1,150 119.5,160 114.2,168.3 C106,181.1 96.3,194.4 85,206.9 C71.5,221.7 59.2,221.9 47.4,218.3 L43.9,217.1 L39,215.2 L33.9,213 L29.8,211.2 C18.7,206.4 8.4,201.4 0,195.2 L0,20.1 C0,9 9,0 20.1,0 L85.4,0 Z"/>
+          </svg>
+          <svg class="pfeil" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="6" y1="26" x2="26" y2="6" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="12,6 26,6 26,20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <div class="gremien-karte-inhalt">
+            <h3>Wissenschaftlicher Beirat</h3>
+          </div>
+        </a>
+
+        <!-- Patient:innen Beirat -->
+        <a class="gremien-karte" href="vorstand.html#patientinnengremium">
+          <svg class="ecke-svg" viewBox="0 0 121 221" xmlns="http://www.w3.org/2000/svg">
+            <path d="M87.4,5.8 L91.4,20.8 L93.9,29.9 L98.1,45.7 L101.2,57.1 L102.9,63.9 L104.5,69.7 L106,75.8 L107.6,81.8 L109.1,87.7 L110.1,91.6 L111.5,97.2 L112.7,101.8 L113.8,106.3 L114.8,110.6 L115.8,114.7 L116.5,117.6 L116.9,119.5 L117.6,122.3 L118.1,125.1 L118.4,126.4 L118.7,127.8 L119,129.7 L119.3,131.7 L119.7,134.2 L119.9,136.7 L120,137.9 C121.1,150 119.5,160 114.2,168.3 C106,181.1 96.3,194.4 85,206.9 C71.5,221.7 59.2,221.9 47.4,218.3 L43.9,217.1 L39,215.2 L33.9,213 L29.8,211.2 C18.7,206.4 8.4,201.4 0,195.2 L0,20.1 C0,9 9,0 20.1,0 L85.4,0 Z"/>
+          </svg>
+          <svg class="pfeil" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="6" y1="26" x2="26" y2="6" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="12,6 26,6 26,20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <div class="gremien-karte-inhalt">
+            <h3>Patient:innen Beirat</h3>
+          </div>
+        </a>
+
+        <!-- Industriepartner -->
+        <a class="gremien-karte" href="vorstand.html#industriepartner">
+          <svg class="ecke-svg" viewBox="0 0 121 221" xmlns="http://www.w3.org/2000/svg">
+            <path d="M87.4,5.8 L91.4,20.8 L93.9,29.9 L98.1,45.7 L101.2,57.1 L102.9,63.9 L104.5,69.7 L106,75.8 L107.6,81.8 L109.1,87.7 L110.1,91.6 L111.5,97.2 L112.7,101.8 L113.8,106.3 L114.8,110.6 L115.8,114.7 L116.5,117.6 L116.9,119.5 L117.6,122.3 L118.1,125.1 L118.4,126.4 L118.7,127.8 L119,129.7 L119.3,131.7 L119.7,134.2 L119.9,136.7 L120,137.9 C121.1,150 119.5,160 114.2,168.3 C106,181.1 96.3,194.4 85,206.9 C71.5,221.7 59.2,221.9 47.4,218.3 L43.9,217.1 L39,215.2 L33.9,213 L29.8,211.2 C18.7,206.4 8.4,201.4 0,195.2 L0,20.1 C0,9 9,0 20.1,0 L85.4,0 Z"/>
+          </svg>
+          <svg class="pfeil" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="6" y1="26" x2="26" y2="6" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="12,6 26,6 26,20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <div class="gremien-karte-inhalt">
+            <h3>Industriepartner</h3>
+          </div>
+        </a>
+
+        <!-- Satzung -->
+        <a class="gremien-karte" href="satzung.html">
+          <svg class="ecke-svg" viewBox="0 0 121 221" xmlns="http://www.w3.org/2000/svg">
+            <path d="M87.4,5.8 L91.4,20.8 L93.9,29.9 L98.1,45.7 L101.2,57.1 L102.9,63.9 L104.5,69.7 L106,75.8 L107.6,81.8 L109.1,87.7 L110.1,91.6 L111.5,97.2 L112.7,101.8 L113.8,106.3 L114.8,110.6 L115.8,114.7 L116.5,117.6 L116.9,119.5 L117.6,122.3 L118.1,125.1 L118.4,126.4 L118.7,127.8 L119,129.7 L119.3,131.7 L119.7,134.2 L119.9,136.7 L120,137.9 C121.1,150 119.5,160 114.2,168.3 C106,181.1 96.3,194.4 85,206.9 C71.5,221.7 59.2,221.9 47.4,218.3 L43.9,217.1 L39,215.2 L33.9,213 L29.8,211.2 C18.7,206.4 8.4,201.4 0,195.2 L0,20.1 C0,9 9,0 20.1,0 L85.4,0 Z"/>
+          </svg>
+          <svg class="pfeil" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="6" y1="26" x2="26" y2="6" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="12,6 26,6 26,20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <div class="gremien-karte-inhalt">
+            <h3>Satzung und Beitragsordnung</h3>
+          </div>
+        </a>
+
+      </div>
     </div>
-  </main>
+  </section>
 
   <footer>
     <div class="footer-inner">
@@ -124,18 +287,21 @@
       </div>
     </div>
     <div class="kontakt-form-box" style="display:none;max-width:700px;margin:2rem auto;padding:0 2rem;">
-      <div style="display:flex;flex-direction:column;gap:1rem;">
-        <input type="text" placeholder="Name *" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;" />
-        <input type="email" placeholder="Email-Adresse *" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;" />
-        <input type="text" placeholder="Betreff" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;" />
-        <textarea placeholder="Nachricht *" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;min-height:100px;resize:vertical;"></textarea>
-        <button style="background:var(--tuerkis);color:var(--blau);border:none;padding:0.8rem 2.5rem;font-size:1rem;font-weight:700;border-radius:3px;cursor:pointer;width:fit-content;">Senden</button>
-        <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;">(*) PFLICHTANGABE</p>
-      </div>
+      <form action="https://formspree.io/f/mdajrjzl" method="POST">
+        <input type="hidden" name="_subject" value="Kontaktanfrage über jahrzehnt-der-lunge.de" />
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <input type="text" name="name" placeholder="Name *" required style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;font-family:inherit;" />
+          <input type="email" name="email" placeholder="Email-Adresse *" required style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;font-family:inherit;" />
+          <input type="text" name="betreff" placeholder="Betreff" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;font-family:inherit;" />
+          <textarea name="nachricht" placeholder="Nachricht *" required style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;min-height:100px;resize:vertical;font-family:inherit;"></textarea>
+          <button type="submit" style="background:var(--tuerkis);color:var(--blau);border:none;padding:0.8rem 2.5rem;font-size:1rem;font-weight:700;border-radius:3px;cursor:pointer;width:fit-content;font-family:inherit;">Senden</button>
+          <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;">(*) PFLICHTANGABE</p>
+        </div>
+      </form>
     </div>
     <div class="footer-bottom">
       <p>2026 © Jahrzehnt der Lunge</p>
-      <a href="#">Impressum</a>
+      <a href="impressum.html">Impressum</a>
     </div>
   </footer>
 
