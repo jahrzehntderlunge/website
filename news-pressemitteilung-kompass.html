@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pressemitteilung: Politischer Kompass | Jahrzehnt der Lunge</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blau: #1535a8; --tuerkis: #68d2df; --gelb: #f7af10; --gruen: #5a9e6f;
+      --weiss: #ffffff; --hell: #f4f4f4; --text: #333333;
+      --schrift: 'Poppins', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--schrift); color: var(--text); background: var(--weiss); overflow-x: hidden; }
+    header { position: sticky; top: 0; z-index: 200; background: var(--blau); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: center; }
+    nav ul { list-style: none; display: flex; gap: 0; align-items: center; }
+    nav ul li + li { margin-left: 0.3rem; }
+    nav ul li.sep { color: rgba(255,255,255,0.4); padding: 0 0.2rem; pointer-events: none; }
+    nav ul li { position: relative; }
+    nav ul li a { display: block; padding: 1.2rem 1rem; text-decoration: none; color: var(--weiss); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
+    nav ul li a:hover, nav ul li a.aktiv { color: var(--tuerkis); }
+    nav ul li .dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--blau); box-shadow: 0 6px 20px rgba(0,0,0,0.3); min-width: 220px; z-index: 300; }
+    nav ul li:hover .dropdown { display: block; }
+    nav ul li .dropdown a { padding: 0.7rem 1.2rem; font-weight: 400; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--weiss); text-transform: none; letter-spacing: 0; }
+    main { max-width: 860px; margin: 3rem auto; padding: 0 2rem 4rem; }
+    .zurueck { display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 2rem; color: var(--blau); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .zurueck:hover { text-decoration: underline; }
+    .artikel-meta { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .artikel-kat { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 20px; color: #fff; }
+    .kat-neuigkeiten { background: var(--tuerkis); color: var(--blau) !important; }
+    .kat-fakten { background: var(--gelb); color: var(--blau) !important; }
+    .kat-veranstaltungen { background: var(--blau); }
+    .kat-wegweiser { background: var(--gruen); }
+    .artikel-datum { font-size: 0.85rem; color: #aaa; }
+    .artikel-titel { font-size: 2rem; color: #1a1a1a; font-weight: 600; line-height: 1.3; margin-bottom: 1.8rem; }
+    .artikel-bild { width: 100%; max-height: 420px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; display: block; }
+    .artikel-body p { font-size: 0.95rem; color: #444; line-height: 1.9; margin-bottom: 1.2rem; }
+    .artikel-body h3 { font-size: 1.15rem; color: var(--blau); font-weight: 600; margin: 2rem 0 0.8rem; }
+    .artikel-body a { color: var(--blau); font-weight: 600; }
+    .artikel-body a:hover { text-decoration: underline; }
+    .artikel-body .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin: 2rem 0; }
+    .artikel-body .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    footer { background: var(--blau); border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem; margin-top: 4rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-bottom: 2rem; }
+    .footer-nav ul { list-style: none; }
+    .footer-nav ul li a { color: var(--weiss); text-decoration: underline; font-size: 0.95rem; font-weight: 600; display: block; padding: 0.4rem 0; transition: color 0.2s; }
+    .footer-nav ul li a:hover { color: var(--tuerkis); }
+    .footer-kontakt h3 { color: var(--weiss); margin-bottom: 1rem; }
+    .btn-kontakt { background: var(--tuerkis); color: var(--blau); border: none; padding: 0.7rem 2rem; font-size: 0.95rem; font-weight: 600; border-radius: 30px; cursor: pointer; font-family: var(--schrift); }
+    .btn-kontakt:hover { background: var(--weiss); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; }
+    .footer-bottom p, .footer-bottom a { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--weiss); }
+    .kontakt-form-box { display:none; max-width:700px; margin:2rem auto; padding:0 2rem; }
+    .form-zeile input, .form-zeile textarea { width:100%; background:transparent; border:none; border-bottom:2px solid rgba(255,255,255,0.4); color:#fff; padding:0.8rem 0; font-size:1rem; font-family:var(--schrift); outline:none; }
+    .form-zeile { margin-bottom:1.2rem; }
+    .form-zeile textarea { min-height:120px; resize:vertical; }
+    .btn-senden { background:var(--tuerkis); color:var(--blau); border:none; padding:0.8rem 2.5rem; font-size:1rem; font-weight:700; border-radius:3px; cursor:pointer; font-family:var(--schrift); }
+    @media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr; } .artikel-titel { font-size: 1.5rem; } }
+</style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <nav>
+        <ul>
+          <li>
+            <a href="verein.html">Der Verein</a>
+            <div class="dropdown">
+              <a href="vorstand.html">Vorstand &amp; Gremien</a>
+              <a href="satzung.html">Satzung</a>
+              <a href="mitgliedschaft.html">Mitgliedschaft</a>
+            </div>
+          </li>
+          <li class="sep">·</li>
+          <li>
+            <a href="positionen.html">Positionen</a>
+            <div class="dropdown">
+              <a href="politischer-kompass.html">Politische Kompasse</a>
+              <a href="wegweiser.html">Wegweiser</a>
+            </div>
+          </li>
+          <li class="sep">·</li>
+          <li><a href="news.html" class="aktiv">News</a></li>
+          <li class="sep">·</li>
+          <li><a href="presse.html">Presse und Kontakt</a></li>
+          <li class="sep">·</li>
+          <li><a href="mitgliedschaft.html">Mitglied werden</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <a href="news.html" class="zurueck">← Zurück zur Übersicht</a>
+    <div class="artikel-meta">
+      <span class="artikel-kat kat-neuigkeiten">Neuigkeiten</span>
+      <span class="artikel-datum">12.12.2022</span>
+    </div>
+    <h1 class="artikel-titel">Pressemitteilung: Expert:innenkreis stellt politische Forderungen vor – Politischer Kompass für bessere Prävention und Früherkennung von Lungenerkrankungen</h1>
+    <img class="artikel-bild" src="PolitischerKompass.png" alt="Politischer Kompass" />
+    <div class="artikel-body">
+      <p><strong>Berlin, 12. Dezember 2022.</strong> Unter dem Dach der Initiative Jahrzehnt der Lunge fordern Expert:innen aus Ärzt:innenschaft und Patient:innenvertretung einen Nationalen Aktionsplan Lunge. Schon bevor Covid-19 die öffentliche Aufmerksamkeit auf die Lunge lenkte, galten chronische Lungen- und Atemwegserkrankungen wie Asthma und COPD mit schätzungsweise über 10 Millionen Betroffenen als Volkskrankheiten in Deutschland. Sie zählen zu den häufigsten Todesursachen. Studien schätzen, dass die Prävalenzen noch weiter steigen werden, was eine zunehmende Belastung für das Gesundheitssystem bedeutet. Zusätzlich verursacht beispielsweise COPD hohe indirekte Kosten durch Arbeitsausfälle und vorzeitige Verrentung. Dennoch finden chronische Lungen- und Atemwegserkrankungen in der politischen Diskussion nur ungenügend statt.</p>
+
+      <p>„Mit dem Jahrzehnt der Lunge wollen wir die Grundlagen für eine bessere Prävention, frühere Diagnosestellung und individuellere Versorgung legen. Wir müssen uns von der Erkenntnis leiten lassen, dass einige Lungenerkrankungen vermieden oder zumindest ein schwerer Verlauf verhindert werden könnten. Dazu bedarf es jedoch eines politischen Willens, die bestehenden Versorgungslücken in der Breite anzugehen", so Prof. Dr. Claus Franz Vogelmeier, einer der Expert:innen und Direktor der Klinik für Innere Medizin, Pneumologie, Intensiv- und Schlafmedizin am Universitätsklinikum Marburg. Um Impulse zu liefern, bringen sich die Expert:innen in die politische Diskussion ein. Dafür haben sie den Politischen Kompass: Prävention und Früherkennung mit konkreten Handlungsempfehlungen entwickelt. Neben der Aufnahme chronischer Lungen- und Atemwegserkrankungen in den nationalen Präventionsplan und einer verbesserten Früherkennung durch optimierte Screenings, setzen sich die Expert:innen auch für eine bundesweite Sensibilisierung zu den Krankheitsgebieten ein. Der Politische Kompass inklusive aller Forderungen kann <a href="politischer-kompass.html">hier eingesehen werden</a>.</p>
+
+      <h3>Fachforum Gesundheit – Asthma, COPD und Co.</h3>
+      <p>Unter dem Titel „Asthma, COPD und Co. – wie man die Volkskrankheiten der Lunge bekämpfen kann" fand am 23. November in Berlin ein Fachforum Gesundheit statt. In der vom Tagesspiegel ausgerichteten Veranstaltung diskutierten die Teilnehmenden die Herausforderungen in den Feldern Prävention, Früherkennung und Versorgung mit politischer Beteiligung aus dem Bundesgesundheitsministerium. Dabei waren sich die anwesenden Expert:innen einig: Es ist Zeit zu handeln. In Anbetracht der steigenden Patient:innenzahlen sowie der hohen individuellen und gesellschaftlichen Belastung durch Lungenerkrankungen könnten selbst einfache politische Maßnahmen Großes bewirken.</p>
+      <p>Prof. Dr. Monika Gappa, Chefärztin der Klinik für Kinder- und Jugendmedizin, Evangelisches Krankenhaus Düsseldorf, machte sich für ein Umdenken stark: „Wir brauchen ein langfristiges Konzept, einen Nationalen Aktionsplan Lunge. Deshalb haben wir das Jahrzehnt der Lunge ausgerufen und fordern ein Umdenken für verbesserte Prävention, Früherkennung und Versorgung, etwa durch Lungenfunktionsscreenings im Rahmen von Vorsorgeprogrammen ab dem Kindesalter an. Lungengesundheit beginnt bereits in der Kindheit." Auch Dr. Sonja Optendrenk, Leiterin der Unterabteilung „Zielgruppenspezifische Prävention, Nicht übertragbare Krankheiten" im Bundesgesundheitsministerium, sah den Handlungsbedarf: „Ich würde mir wünschen, dass wir in dieser Legislaturperiode deutliche Fortschritte beim Thema Prävention machen. Dazu bedarf es auch einer intensiveren Zusammenarbeit der Ministerien. Damit haben wir begonnen."</p>
+
+      <h3>Expert:innen ziehen an einem Strang</h3>
+      <p>Der Expert:innenzusammenschluss des Jahrzehnts der Lunge besteht seit Ende 2021. Ziel der Initiative ist es, Politik und andere Träger:innen des Gesundheitssystems bei der Ausgestaltung von nachhaltigen und systematischen Maßnahmen im Bereich der chronischen Lungenerkrankungen zu unterstützen. Neben dem Politischen Kompass führt die Website der Initiative die Stimmen und das Fachwissen der Expert:innen zusammen. Der Informationshub bietet eine kompakte Übersicht zu den politischen Forderungen und laufend aktualisierte Informationen. Weiterhin gibt es die Möglichkeit, sich direkt über ein Kontaktformular an die Initiative zu wenden.</p>
+      <p>AstraZeneca und Sanofi unterstützen das Jahrzehnt der Lunge und setzen sich gemeinsam mit Expert:innen für bessere strukturelle und politische Rahmenbedingungen bei der Versorgung von Patient:innen mit Lungenerkrankungen ein. Die inhaltliche Hoheit obliegt den in die Initiative eingebundenen Expert:innen.</p>
+      <p>Mehr über das Jahrzehnt der Lunge erfahren Sie hier: <a href="index.html">www.jahrzehntderlunge.de</a></p>
+
+      <h3>Kontakt</h3>
+      <p>Isabel Hoffmann-Ludwig<br>
+      <a href="mailto:jdl@apcoworldwide.com">jdl@apcoworldwide.com</a><br>
+      +49 172 1749905</p>
+      <p>Pressekontakt AstraZeneca: Miriam Hofmann · <a href="mailto:miriam.hofmann@astrazeneca.com">miriam.hofmann@astrazeneca.com</a> · +49 173 6494130</p>
+      <p>Pressekontakt Sanofi: Leyla Yazdan Panah · <a href="mailto:presse@sanofi.com">presse@sanofi.com</a> · +49 69 305-84412</p>
+      <p style="font-size:0.8rem;color:#aaa;">DE-52551 · MAT-DE-2205342-1.0-11/2022</p>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-inner">
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="index.html" style="text-transform:uppercase;font-weight:700;">Startseite</a></li>
+          <li><a href="verein.html">Der Verein</a></li>
+          <li><a href="positionen.html">Positionen</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="presse.html">Presse und Kontakt</a></li>
+          <li><a href="mitgliedschaft.html">Mitglied werden</a></li>
+        </ul>
+      </nav>
+      <div class="footer-kontakt">
+        <h3>Kontakt aufnehmen</h3>
+        <button class="btn-kontakt" onclick="document.querySelector('.kontakt-form-box').style.display='block'">Kontaktformular</button>
+      </div>
+    </div>
+    <div class="kontakt-form-box">
+      <form action="https://formspree.io/f/mdajrjzl" method="POST">
+        <input type="hidden" name="_subject" value="Kontaktanfrage über jahrzehnt-der-lunge.de" />
+        <div class="form-zeile"><input type="text" name="name" placeholder="Name *" required /></div>
+        <div class="form-zeile"><input type="email" name="email" placeholder="Email-Adresse *" required /></div>
+        <div class="form-zeile"><input type="text" name="betreff" placeholder="Betreff" /></div>
+        <div class="form-zeile"><textarea name="nachricht" placeholder="Nachricht *" required></textarea></div>
+        <button type="submit" class="btn-senden">Senden</button>
+        <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-top:1rem;">(*) PFLICHTANGABE</p>
+      </form>
+    </div>
+    <div class="footer-bottom">
+      <p>2026 &copy; Jahrzehnt der Lunge</p>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </footer>
+  <script>
+    function toggleKontakt() {
+      const b = document.querySelector('.kontakt-form-box');
+      b.style.display = b.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
