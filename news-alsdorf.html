@@ -142,7 +142,7 @@
       <p>Im Bereich der Atemwegserkrankungen gibt es leider viele patientenrelevante Baustellen. Das f&#228;ngt bei der h&#228;ufig schwierigen Suche nach &#228;rztlichen Ansprechpartner:innen an. Die Ursachen sind jedoch oft tiefgreifender, weil z.B. vorhandene Allergien, die als Asthmaausl&#246;ser gelten, nicht erkannt werden oder umgekehrt ein Asthma oder eine COPD neben Allergien zun&#228;chst nicht diagnostiziert wird. Die Diagnose erfolgt dadurch oft viel zu sp&#228;t. Eine verbesserte Fr&#252;herkennung durch <a href="politischer-kompass.html" style="color:var(--blau);">optimierte Allergiescreenings</a> &#8211; wie vom &#8222;Jahrzehnt der Lunge&#8220; gefordert &#8211; k&#246;nnte hier Abhilfe leisten.</p>
     </div>
   </main>
-  <footer>
+<footer>
     <div class="footer-inner">
       <nav class="footer-nav">
         <ul>
@@ -160,15 +160,20 @@
       </div>
     </div>
     <div class="kontakt-form-box" style="display:none;max-width:700px;margin:2rem auto;padding:0 2rem;">
-      <div style="display:flex;flex-direction:column;gap:1rem;">
-        <input type="text" placeholder="Name *" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;" />
-        <input type="email" placeholder="Email-Adresse *" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;" />
-        <textarea placeholder="Nachricht *" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;min-height:100px;resize:vertical;"></textarea>
-        <button style="background:var(--tuerkis);color:var(--blau);border:none;padding:0.8rem 2.5rem;font-size:1rem;font-weight:700;border-radius:3px;cursor:pointer;width:fit-content;">Senden</button>
-      </div>
+      <form action="https://formspree.io/f/mdajrjzl" method="POST">
+        <input type="hidden" name="_subject" value="Kontaktanfrage über jahrzehnt-der-lunge.de" />
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <input type="text" name="name" placeholder="Name *" required style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;font-family:inherit;" />
+          <input type="email" name="email" placeholder="Email-Adresse *" required style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;font-family:inherit;" />
+          <input type="text" name="betreff" placeholder="Betreff" style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;font-family:inherit;" />
+          <textarea name="nachricht" placeholder="Nachricht *" required style="background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,0.4);color:#fff;padding:0.8rem 0;font-size:1rem;outline:none;min-height:100px;resize:vertical;font-family:inherit;"></textarea>
+          <button type="submit" style="background:var(--tuerkis);color:var(--blau);border:none;padding:0.8rem 2.5rem;font-size:1rem;font-weight:700;border-radius:3px;cursor:pointer;width:fit-content;font-family:inherit;">Senden</button>
+          <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;">(*) PFLICHTANGABE</p>
+        </div>
+      </form>
     </div>
     <div class="footer-bottom">
-      <p>2026 &copy; Jahrzehnt der Lunge</p>
+      <p>2026 © Jahrzehnt der Lunge</p>
       <a href="impressum.html">Impressum</a>
     </div>
   </footer>
