@@ -31,14 +31,14 @@
     nav ul li { position: relative; }
     nav ul li a { display: block; padding: 1.2rem 1rem; text-decoration: none; color: var(--weiss); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
     nav ul li a:hover { color: var(--tuerkis); }
-    nav ul li .dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--weiss); box-shadow: 0 8px 24px rgba(0,0,0,0.15); min-width: 220px; z-index: 300; border-radius: 12px; overflow: hidden; margin-top: 0.3rem; padding-top: 0.5rem; }
+    nav ul li .dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--weiss); box-shadow: 0 8px 24px rgba(0,0,0,0.15); min-width: 220px; z-index: 300; border-radius: 12px; overflow: hidden; margin-top: 0.3rem; }
     nav ul li:hover .dropdown { display: block; }
     nav ul li .dropdown a { padding: 0.8rem 1.4rem; font-weight: 600; font-size: 0.85rem; border-bottom: 1px solid rgba(0,0,0,0.06); color: var(--tuerkis); text-transform: none; letter-spacing: 0; display: block; transition: background 0.2s; }
     nav ul li .dropdown a:hover { background: #f0fbfc; }
 
     /* HERO */
     .hero-banner { position: relative; background: var(--blau); }
-    .hero-oben { height: 240px; background: var(--blau); position: relative; overflow: visible; }
+    .hero-oben { height: 280px; background: var(--blau); position: relative; overflow: visible; }
     .hero-logo {
       position: absolute;
       left: 50%;
@@ -49,7 +49,7 @@
     }
     .hero-logo img { width: 280px; max-width: 30vw; }
     .hero-strip { overflow: hidden; height: 320px; display: flex; position: relative; background: var(--blau); }
-    .hero-track { display: flex; gap: 30px; animation: laufend 70s linear infinite; will-change: transform; padding: 0 15px; }
+    .hero-track { display: flex; gap: 30px; animation: laufend 45s linear infinite; will-change: transform; padding: 0 15px; }
     .hero-track img { height: 320px; width: auto; flex-shrink: 0; display: block; object-fit: cover; }
     .hero-unter { height: 80px; background: var(--blau); }
     @keyframes laufend { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -158,70 +158,6 @@
     .btn-senden { background: var(--tuerkis); color: var(--blau); border: none; padding: 0.8rem 2.5rem; font-size: 1rem; font-weight: 700; border-radius: 3px; cursor: pointer; font-family: var(--schrift); }
     .btn-senden:hover { background: var(--weiss); }
 
-    /* COOKIE BANNER */
-    #cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #1a1a1a;
-      color: #fff;
-      padding: 1.8rem 2rem;
-      z-index: 9999;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-    }
-    #cookie-banner-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    #cookie-banner h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.8rem;
-    }
-    #cookie-banner p {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.6;
-      margin: 0 0 1.2rem 0;
-    }
-    #cookie-banner a {
-      color: var(--tuerkis);
-      text-decoration: underline;
-    }
-    .cookie-buttons {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-    .btn-cookie-akzept {
-      background: var(--tuerkis);
-      color: var(--blau);
-      border: none;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: var(--schrift);
-      transition: background 0.2s;
-    }
-    .btn-cookie-akzept:hover { background: var(--weiss); }
-    .btn-cookie-einstellungen {
-      background: transparent;
-      color: rgba(255,255,255,0.7);
-      border: 2px solid rgba(255,255,255,0.3);
-      padding: 0.6rem 1.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: var(--schrift);
-      transition: all 0.2s;
-    }
-    .btn-cookie-einstellungen:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
-
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .intro { grid-template-columns: 1fr; gap: 2rem; }
@@ -235,6 +171,71 @@
       .news-liste { grid-template-columns: 1fr; }
       nav ul { flex-wrap: wrap; justify-content: center; }
       nav ul li a { padding: 0.8rem 0.7rem; font-size: 0.8rem; }
+    }
+
+    /* COOKIE BANNER */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--blau);
+      color: var(--weiss);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      z-index: 9999;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+    }
+    #cookie-banner p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+      margin: 0;
+      flex: 1;
+    }
+    #cookie-banner a {
+      color: var(--tuerkis);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .cookie-buttons {
+      display: flex;
+      gap: 0.8rem;
+      flex-shrink: 0;
+    }
+    .btn-cookie-accept {
+      background: var(--tuerkis);
+      color: var(--blau);
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: var(--schrift);
+      transition: background 0.2s;
+    }
+    .btn-cookie-accept:hover { background: var(--weiss); }
+    .btn-cookie-decline {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: var(--schrift);
+      transition: all 0.2s;
+    }
+    .btn-cookie-decline:hover { border-color: var(--weiss); color: var(--weiss); }
+    @media (max-width: 600px) {
+      #cookie-banner { flex-direction: column; align-items: flex-start; }
+      .cookie-buttons { width: 100%; }
     }
   </style>
 </head>
@@ -276,8 +277,8 @@
   <section class="hero-banner">
     <div class="hero-oben">
       <!-- Logo sitzt am unteren Rand des blauen Bereichs und überlappt die Bilder -->
-      <div style="position:absolute;bottom:-140px;left:50%;transform:translateX(-50%);z-index:20;text-align:center;">
-        <a href="index.html"><img src="Logo.svg" alt="Jahrzehnt der Lunge" style="width:300px;max-width:30vw;" /></a>
+      <div style="position:absolute;bottom:-160px;left:50%;transform:translateX(-50%);z-index:20;text-align:center;">
+        <a href="index.html"><img src="Logo.png" alt="Jahrzehnt der Lunge" style="width:320px;max-width:32vw;" /></a>
       </div>
     </div>
     <div class="hero-strip" style="position:relative;">
@@ -414,9 +415,10 @@
         <button onclick="filterNews('wegweiser', this)">Wegweiser</button>
       </div>
 
-      <!-- LinkedIn Widget – wird nur geladen nach Cookie-Zustimmung -->
-      <div style="margin:0 0 2rem 0;" id="elfsight-container" style="display:none;">
-        <div class="elfsight-app-2b442687-4c62-4b02-a17a-04e1cbc8720a">&nbsp;</div>
+      <!-- LinkedIn Widget -->
+      <div style="margin:0 0 2rem 0;">
+        <script src="https://elfsightcdn.com/platform.js" async=""></script>
+        <div class="elfsight-app-2b442687-4c62-4b02-a17a-04e1cbc8720a" data-elfsight-app-lazy="">&nbsp;</div>
       </div>
 
       <div class="news-liste" id="newsliste">
@@ -556,53 +558,7 @@
     </div>
   </footer>
 
-  <!-- COOKIE BANNER -->
-  <div id="cookie-banner">
-    <div id="cookie-banner-inner">
-      <h4>Cookie-Hinweis</h4>
-      <p>
-        Wir nutzen Cookies und Dienste auf unserer Website. Einige von ihnen sind technisch notwendig, während andere uns helfen, zusätzliche Funktionalitäten zur Verfügung zu stellen.<br><br>
-        Diese Seite nutzt externe Dienste von Drittanbietern (LinkedIn-Widget), um Funktionen unserer Website bereitzustellen. Dabei ist es möglich, dass Informationen im Endgerät der Nutzer gespeichert oder aus diesem ausgelesen werden. Ich bin damit einverstanden und kann meine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen oder ändern. Weitere Informationen finden Sie in unserer <a href="impressum.html">Datenschutzerklärung</a>.
-      </p>
-      <div class="cookie-buttons">
-        <button class="btn-cookie-akzept" onclick="cookieAkzeptieren()">Alle Cookies akzeptieren</button>
-        <button class="btn-cookie-einstellungen" onclick="cookieAblehnen()">Ablehnen</button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Cookie-Banner Logik
-    function cookieAkzeptieren() {
-      localStorage.setItem('cookie-consent', 'accepted');
-      document.getElementById('cookie-banner').style.display = 'none';
-      ladeElfsight();
-    }
-    function cookieAblehnen() {
-      localStorage.setItem('cookie-consent', 'rejected');
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-    function ladeElfsight() {
-      if (document.getElementById('elfsight-container')) {
-        document.getElementById('elfsight-container').style.display = 'block';
-        var s = document.createElement('script');
-        s.src = 'https://elfsightcdn.com/platform.js';
-        s.async = true;
-        document.head.appendChild(s);
-      }
-    }
-    // Beim Laden prüfen ob schon Zustimmung vorhanden
-    (function() {
-      var consent = localStorage.getItem('cookie-consent');
-      if (consent === 'accepted') {
-        document.getElementById('cookie-banner').style.display = 'none';
-        ladeElfsight();
-      } else if (consent === 'rejected') {
-        document.getElementById('cookie-banner').style.display = 'none';
-      }
-      // kein Eintrag = Banner anzeigen (default)
-    })();
-
     function toggleKontakt() {
       const box = document.getElementById('kontaktBox');
       box.style.display = box.style.display === 'none' ? 'block' : 'none';
@@ -623,5 +579,47 @@
     }
   </script>
 
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner">
+    <p>
+      Wir verwenden Cookies, um die Funktionalität unserer Website zu verbessern und Inhalte zu personalisieren. 
+      Mit dem Klick auf „Akzeptieren" stimmen Sie der Verwendung aller Cookies zu. 
+      Mehr Informationen finden Sie in unserer <a href="https://policy.cookiereports.com/065072f7-de.html" target="_blank">Cookie-Richtlinie</a>.
+    </p>
+    <div class="cookie-buttons">
+      <button class="btn-cookie-decline" onclick="declineCookies()">Ablehnen</button>
+      <button class="btn-cookie-accept" onclick="acceptCookies()">Akzeptieren</button>
+    </div>
+  </div>
+
+  <script>
+    // Cookie Banner
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/';
+    }
+    function getCookie(name) {
+      const ca = document.cookie.split(';');
+      for (let c of ca) {
+        c = c.trim();
+        if (c.startsWith(name + '=')) return c.substring(name.length + 1);
+      }
+      return '';
+    }
+    function acceptCookies() {
+      setCookie('jdl_cookie_consent', 'accepted', 365);
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    function declineCookies() {
+      setCookie('jdl_cookie_consent', 'declined', 365);
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    // Banner nur zeigen wenn noch keine Entscheidung getroffen
+    if (getCookie('jdl_cookie_consent')) {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
