@@ -165,12 +165,47 @@
       .vorstand-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-inner { grid-template-columns: 1fr; }
       .news-liste { grid-template-columns: repeat(2, 1fr); }
+      .kompass-karten { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .vorstand-grid { grid-template-columns: 1fr; }
+      /* NAV */
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 0; }
+      nav ul li a { padding: 0.6rem 0.6rem; font-size: 0.72rem; letter-spacing: 0.06em; }
+      nav ul li.sep { display: none; }
+
+      /* HERO */
+      .hero-oben { height: 180px; }
+      .hero-strip { height: 200px; }
+      .hero-track img { height: 200px; }
+
+      /* INTRO */
+      .intro { padding: 0 1.2rem; margin: 2rem auto; }
+      .intro-text h1 { font-size: 1.2rem; line-height: 1.4; }
+      .intro-text p { font-size: 0.85rem; }
+
+      /* KOMPASS */
+      .kompass { padding: 2rem 1.2rem 3rem; }
+      .kompass h2 { font-size: 1.8rem; }
+      .kompass-karten { grid-template-columns: 1fr; gap: 1rem; }
+      .kompass-karte { min-height: 200px; padding: 1.5rem; }
+
+      /* VORSTAND */
+      .vorstand { padding: 0 1.2rem; }
+      .vorstand-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+      /* NEWS */
+      .news-inner { padding: 0 1.2rem; }
       .news-liste { grid-template-columns: 1fr; }
-      nav ul { flex-wrap: wrap; justify-content: center; }
-      nav ul li a { padding: 0.8rem 0.7rem; font-size: 0.8rem; }
+      .news-filter { gap: 0.4rem; }
+      .news-filter button { font-size: 0.78rem; padding: 0.3rem 0.8rem; }
+
+      /* FOOTER */
+      .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      footer { padding: 1.5rem 1.2rem; }
+
+      /* COOKIE BANNER */
+      #cookie-banner { padding: 1rem 1.2rem; }
+      #cookie-banner p { font-size: 0.8rem; }
     }
 
     /* COOKIE BANNER */
