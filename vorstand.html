@@ -53,11 +53,12 @@
     .gremium-section { margin-bottom: 4rem; }
     .gremium-section h2 { font-size: 1.6rem; color: #1a1a1a; font-weight: 600; margin-bottom: 2rem; padding-bottom: 0.6rem; border-bottom: 3px solid var(--blau); display: inline-block; }
     .logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2rem; align-items: center; }
-    .logo-karte { display: flex; align-items: center; justify-content: center; padding: 1rem; background: var(--weiss); border: 2px solid rgba(21, 53, 168, 0.2); border-radius: 8px; transition: all 0.3s; }
+    .logos-grid.fuenf { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+    .logo-karte { display: flex; align-items: center; justify-content: center; padding: 1rem; height: 116px; background: var(--weiss); border: 2px solid rgba(21, 53, 168, 0.2); border-radius: 8px; transition: all 0.3s; }
     .logo-karte:hover { border-color: var(--tuerkis); box-shadow: 0 4px 12px rgba(21, 53, 168, 0.1); }
-    .logo-karte img { width: 100%; max-height: 80px; object-fit: contain; }
-    @media (max-width: 900px) { .personen-grid { grid-template-columns: repeat(2, 1fr); } .logos-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .personen-grid { grid-template-columns: 1fr; } .logos-grid { grid-template-columns: repeat(2, 1fr); } }
+    .logo-karte img { width: 100%; height: 100%; object-fit: contain; }
+    @media (max-width: 900px) { .personen-grid { grid-template-columns: repeat(2, 1fr); } .logos-grid { grid-template-columns: repeat(2, 1fr); } .logos-grid.fuenf { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .personen-grid { grid-template-columns: 1fr; } .logos-grid { grid-template-columns: repeat(2, 1fr); } .logos-grid.fuenf { grid-template-columns: repeat(2, 1fr); } }
   </style>
 </head>
 <body>
@@ -248,7 +249,6 @@
       </div>
     </div>
 
-    <!-- INDUSTRIEPARTNER -->
     <!-- INDUSTRIEPARTNER -->
     <div class="gremium-section" id="industriepartner">
       <h2>Industriepartner</h2>
