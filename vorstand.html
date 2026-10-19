@@ -53,12 +53,11 @@
     .gremium-section { margin-bottom: 4rem; }
     .gremium-section h2 { font-size: 1.6rem; color: #1a1a1a; font-weight: 600; margin-bottom: 2rem; padding-bottom: 0.6rem; border-bottom: 3px solid var(--blau); display: inline-block; }
     .logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2rem; align-items: center; }
-    .logos-grid.fuenf { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
-    .logo-karte { display: flex; align-items: center; justify-content: center; padding: 1rem; height: 116px; background: var(--weiss); border: 2px solid rgba(21, 53, 168, 0.2); border-radius: 8px; transition: all 0.3s; }
+    .logo-karte { display: flex; align-items: center; justify-content: center; padding: 1rem; background: var(--weiss); border: 2px solid rgba(21, 53, 168, 0.2); border-radius: 8px; transition: all 0.3s; }
     .logo-karte:hover { border-color: var(--tuerkis); box-shadow: 0 4px 12px rgba(21, 53, 168, 0.1); }
-    .logo-karte img { width: 100%; height: 100%; object-fit: contain; }
-    @media (max-width: 900px) { .personen-grid { grid-template-columns: repeat(2, 1fr); } .logos-grid { grid-template-columns: repeat(2, 1fr); } .logos-grid.fuenf { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 600px) { .personen-grid { grid-template-columns: 1fr; } .logos-grid { grid-template-columns: repeat(2, 1fr); } .logos-grid.fuenf { grid-template-columns: repeat(2, 1fr); } }
+    .logo-karte img { width: 100%; max-height: 80px; object-fit: contain; }
+    @media (max-width: 900px) { .personen-grid { grid-template-columns: repeat(2, 1fr); } .logos-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .personen-grid { grid-template-columns: 1fr; } .logos-grid { grid-template-columns: repeat(2, 1fr); } }
   </style>
 </head>
 <body>
@@ -235,6 +234,24 @@
           <h3>Lena Gleichauf</h3>
           <p>Betroffene.</p>
         </div>
+        <!-- NEU: Patricia Zündorf -->
+        <div class="person-card">
+          <img src="Zuendorf.jpg" alt="Patricia Zündorf" />
+          <h3>Patricia Zündorf</h3>
+          <p>Gruppenleiterin COPD Selbsthilfe Bonn.</p>
+        </div>
+        <!-- NEU: Joachim Rinow -->
+        <div class="person-card">
+          <img src="Rinow.jpg" alt="Joachim Rinow" />
+          <h3>Joachim Rinow</h3>
+          <p>Gruppenleiter COPD Selbsthilfe Bonn.</p>
+        </div>
+        <!-- NEU: Dr. Georg Kneer -->
+        <div class="person-card">
+          <img src="Kneer.png" alt="Dr. Georg Kneer" />
+          <h3>Dr.<br>Georg Kneer</h3>
+          <p>Betroffener, DAAB/EA EU-Projekte.</p>
+        </div>
       </div>
 
       <div class="logos-grid" style="margin-top:2rem;">
@@ -252,9 +269,7 @@
     <!-- INDUSTRIEPARTNER -->
     <div class="gremium-section" id="industriepartner">
       <h2>Industriepartner</h2>
-
-      <!-- Level 1 -->
-      <div class="logos-grid fuenf">
+      <div class="logos-grid">
         <a href="https://www.sanofi.de/de" target="_blank" class="logo-karte">
           <img src="sanofi.jpg" alt="Sanofi" />
         </a>
@@ -267,19 +282,14 @@
         <a href="https://de.gsk.com/de-de/" target="_blank" class="logo-karte">
           <img src="GSK.png" alt="GSK" />
         </a>
-        <a href="https://www.boehringer-ingelheim.com/de" target="_blank" class="logo-karte">
-          <img src="Boehringer_Logo_RGB_Dark_Green.png" alt="Boehringer Ingelheim" />
-        </a>
-      </div>
-
-      <!-- Level 2 -->
-      <div class="logos-grid fuenf" style="margin-top:1.5rem;">
         <a href="https://insmed.com/" target="_blank" class="logo-karte">
           <img src="Insmed.jpg" alt="Insmed" />
         </a>
         <a href="https://pulmonx.com/de/" target="_blank" class="logo-karte">
           <img src="Pulmonx.jpg" alt="Pulmonx" />
         </a>
+        <div></div>
+        <div></div>
       </div>
     </div>
 
