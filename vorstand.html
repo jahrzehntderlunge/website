@@ -270,8 +270,16 @@
     <div class="gremium-section" id="industriepartner">
       <h2>Industriepartner</h2>
 
+      <style>
+        #industriepartner .logos-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; margin-top: 1.5rem; align-items: center; }
+        #industriepartner .logo-karte { display: flex; align-items: center; justify-content: center; padding: 1rem; height: 116px; box-sizing: border-box; }
+        #industriepartner .logo-karte img { width: 100%; height: 100%; max-height: none; object-fit: contain; }
+        @media (max-width: 900px) { #industriepartner .logos-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { #industriepartner .logos-grid { grid-template-columns: repeat(2, 1fr); } }
+      </style>
+
       <!-- Level 1 -->
-      <div class="logos-grid fuenf">
+      <div class="logos-grid">
         <a href="https://www.sanofi.de/de" target="_blank" class="logo-karte">
           <img src="sanofi.jpg" alt="Sanofi" />
         </a>
@@ -290,7 +298,7 @@
       </div>
 
       <!-- Level 2 -->
-      <div class="logos-grid fuenf" style="margin-top:1.5rem;">
+      <div class="logos-grid">
         <a href="https://insmed.com/" target="_blank" class="logo-karte">
           <img src="Insmed.jpg" alt="Insmed" />
         </a>
